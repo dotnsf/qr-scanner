@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta charset="utf8"/>
+<title>HTML5 Camera</title>
+<script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="module">
+import QrScanner from "./qr-scanner.min.js";
+QrScanner.WORKER_PATH = './qr-scanner-worker.min.js';
+
+$(function(){
+  var qr_video = document.getElementById( 'video' );
+  qr_video.width = 360;
+  qr_video.height = 240;
+  var scanner = new QrScanner( qr_video, function( result ){
+    alert( result );
+  }, function( err ){
+  });
+
+  scanner.start();
+});
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<style>
+body{
+  background-color: #fcc;
+}
+</style>
+</head>
+<body>
+  <!-- video(visible) -->
+  <div class="container" id="videoPreview" style="text-align: center;">
+    <h4>Video Preview</h4>
+    <video id="video"></video>
+  </div>
+</body>
+</html>

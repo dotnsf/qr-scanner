@@ -11,8 +11,8 @@ QrScanner.WORKER_PATH = './qr-scanner-worker.min.js';
 
 $(function(){
   var qr_video = document.getElementById( 'video' );
-  qr_video.width = 360;
-  qr_video.height = 240;
+  qr_video.width = 300;
+  qr_video.height = 300;
   var scanner = new QrScanner( qr_video, function( result ){
     alert( result );
   }, function( err ){
